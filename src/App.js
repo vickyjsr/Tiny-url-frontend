@@ -17,8 +17,8 @@ function App () {
   const sendData = async () => {
     // Check if the text contains a URL link
 
-    const res = await axios.post('http://localhost:8080/v1/newTinyUrl?originalUrl=' + url)
-    const x = 'http://localhost:3000/' + res.data.tinyUrl
+    const res = await axios.post('https://tiny-url-backend-production.up.railway.app/v1/newTinyUrl?originalUrl=' + url)
+    const x = 'https://tiny-url-frontend-production.up.railway.app/' + res.data.tinyUrl
     setNewUrl(x)
   }
 

@@ -9,7 +9,7 @@ function OpenPage () {
       return
     }
 
-    const apiUrl = `http://localhost:8080/v1/getUrl?tinyUrl=${id}`
+    const apiUrl = `https://tiny-url-backend-production.up.railway.app/v1/getUrl?tinyUrl=${id}`
 
     fetch(apiUrl, {
       method: 'GET',
