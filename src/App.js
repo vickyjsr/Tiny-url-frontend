@@ -6,10 +6,10 @@ function App () {
   const [url, setUrl] = useState('')
   const [newUrl, setNewUrl] = useState()
   const [isError, setIsError] = useState(false)
-  const urlPattern = /http[s]?:\/\/(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+/
+  const urlPattern = /^(?:(?:(?:https?|ftp):)?\/\/)?(?:\S+(?::\S*)?@)?(?:(?:(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-5])\.){3}(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-5])|(?:[a-zA-Z0-9\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF.-]+(?:\.[a-zA-Z0-9\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF.-]+)*))(?::\d{2,5})?(?:[/|?](?:\S*))?$/
 
   useEffect(() => {
-    if (!urlPattern.test(url)) { setIsError(true) } else {
+    if (url && !urlPattern.test(url)) { setIsError(true) } else {
       setIsError(false)
     }
   }, [url])
@@ -24,7 +24,7 @@ function App () {
 
   return (
     <div className="App">
-      {isError ? 'error' : 'Ok'}
+      {isError ? 'error' : url ? 'ok' : ''}
       <header className="App-header">
         <input type="text" placeholder="input any url" value={url}
          onChange={(e) => {
