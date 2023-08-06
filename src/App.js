@@ -19,6 +19,7 @@ function App () {
 
     const res = await axios.post('https://tiny-url-backend-production.up.railway.app/v1/newTinyUrl?originalUrl=' + url)
     const x = 'https://tiny-url-frontend-production.up.railway.app/' + res.data.tinyUrl
+    // const x = 'http://t-url.co/' + res.data.tinyUrl
     setNewUrl(x)
   }
 
